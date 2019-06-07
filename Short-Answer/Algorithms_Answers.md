@@ -11,3 +11,6 @@ Therefore second line is the dominating factor and the code is:
 
 b) First line is constant. There are 4 nested loops, each one after the first loop depends on the previous one. There for it will be (n * n * n * n). The running time will be O(n^4).
 
+c) Takes in bunnies(n) as the range and it is a recursive function. 2nd and 3rd line of code are constants.
+Last line of code is a 0(1) + 0(n-1). We can take out all constants when determining runtime. Therefore it is just 0(n).
+
