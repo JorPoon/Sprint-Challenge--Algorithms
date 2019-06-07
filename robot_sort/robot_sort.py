@@ -99,14 +99,16 @@ class SortingRobot:
         """
         # Fill this out
         '''
-        1.check if it can move right
-        2.picks up item
-        3.moves right
-        4.compares number
-        5.if greater then swap items  and if less then move left and drop item
-        6. then move right and pick up next item.
-        7. Goes back to the beginning of loop after reaching the end.
-        8. repeat step 2-7
+        First - need to loop over over all the numbers-
+        then:
+            1.check if it can move right
+            2.picks up item
+            3.moves right
+            4.compares number
+            5.if greater then swap items  and if less then move left and drop item
+            6. then move right and pick up next item.
+            7. Goes back to the beginning of loop after reaching the end.
+            8. Turn loop off
         '''
         #Turns the loop on
         self.set_light_on()
