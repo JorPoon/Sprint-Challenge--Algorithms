@@ -93,11 +93,63 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
+
         """
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        '''
+        First - need to loop over over all the numbers-
+        then:
+            1.check if it can move right
+            2.picks up item
+            3.moves right
+            4.compares number
+            5.if greater then swap items  and if less then move left and drop item
+            6. then move right and pick up next item.
+            7. Goes back to the beginning of loop after reaching the end.
+            8. Turn loop off
+        '''
+        #Turns the loop on
+        self.set_light_on()
+
+        
+        while self.light_is_on():
+            #Turns loop off
+            self.set_light_off()
+
+            #Runs the loop while swapping the items to prevent none from being compared 
+            while self.can_move_right():
+                self.swap_item()
+                self.move_right()
+
+                #If item held is bigger then swap items and move to left to swap none with smaller item then move to right to keep loop going if there are items left to be compared
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_on()
+
+                #Places smaller item to the previous spot then moves right to keep loop going
+                if self.compare_item() == -1:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+
+
+                #Moves the loop along without breaking it
+                if self.compare_item() == 0:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+
+            #Breaks the loop of at the end after everything is finished being compared.
+            if self.light_is_on():
+                while self.can_move_left():
+                    self.move_left()
+                    
+        
 
 
 if __name__ == "__main__":
